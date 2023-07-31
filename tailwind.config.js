@@ -2,10 +2,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/*.{js,jsx}", "./src/**/*.{js,jsx}"],
   theme: {
     fontFamily: {
       sans: ["Barlow Condensed", ...defaultTheme.fontFamily.sans],
@@ -22,14 +19,17 @@ export default {
       "5xl": "9.375rem",
     },
     letterSpacing: {
-      wide: "0.146875",
-      wider: "0.16875",
+      wide: "0.146875rem",
+      wider: "0.16875rem",
       widest: "0.296875rem",
     },
     extend: {
       colors: {
         primary: "#0b0d17",
         secondary: "#d0d6f9",
+      },
+      spacing: {
+        30: "7.375rem",
       },
     },
   },

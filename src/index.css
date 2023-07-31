@@ -3,9 +3,6 @@
 @tailwind base;
 
 @layer base {
-    html {
-        @apply font-sans
-    }
 
     h1 {
         @apply text-5xl font-serif;
