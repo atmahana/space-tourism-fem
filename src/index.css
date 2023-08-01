@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap');
+
 
 @tailwind base;
 
 @layer base {
 
     h1 {
-        @apply text-5xl font-serif;
+        @apply text-6xl font-serif;
     }
 
     h2 {
@@ -21,9 +22,10 @@
     }
 
     h5 {
-        @apply text-xl tracking-widest font-sans;
+        @apply text-xl tracking-475 font-sans-condensed;
     }
 }
 
 @tailwind components;
+
 @tailwind utilities;

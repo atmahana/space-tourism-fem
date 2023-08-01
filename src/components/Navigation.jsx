@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import IconClose from "../assets/shared/icon-close.svg";
 import IconHamburger from "../assets/shared/icon-hamburger.svg";
+import IconLogo from "../assets/shared/logo.svg";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
 
 const containerVar = {
@@ -21,27 +22,27 @@ const containerVar = {
 
 const ulVar = {
   open: {
-    transition: { staggerChildren: 1, delayChildren: 1 },
+    transition: { staggerChildren: 5, delayChildren: 5 },
   },
   closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    transition: { staggerChildren: 0.5, staggerDirection: -1 },
   },
 };
 
 const liVar = {
   open: {
-    x: "0%",
+    y: 0,
     opacity: 1,
     transition: {
-      x: { stiffness: 1000, velocity: -100 }
-    }
+      y: { stiffness: 1000, velocity: -100 },
+    },
   },
   closed: {
-    x: "100%",
+    y: 50,
     opacity: 0,
     transition: {
-      x: { stiffness: 1000 }
-    }
+      y: { stiffness: 1000 },
+    },
   },
 };
 
@@ -53,19 +54,22 @@ function NavBar() {
   };
 
   return (
-    <header>
-      <nav className="relative top-0">
-        <button
-          onClick={menuClickHandler}
-          className="absolute right-[26px] top-[33px] z-10"
-        >
-          <img src={mobileNav ? IconClose : IconHamburger} />
-        </button>
+    <header className="fixed top-0 inset-x-0 h-[88px] px-6">
+      <nav className="container mx-auto h-full font-sans-condensed">
+        <div className="relative w-full flex h-full items-center">
+          <img src={IconLogo} className="w-10 h-10" />
+          <button
+            onClick={menuClickHandler}
+            className="absolute right-0 top-[33px] z-10"
+          >
+            <img src={mobileNav ? IconClose : IconHamburger} />
+          </button>
+        </div>
         <AnimatePresence>
           {mobileNav && (
             <motion.div
               key="mobileNav"
-              className="w-[254px] md:hidden px-8 py-30 h-screen absolute backdrop-blur-sm right-0 bg-slate-700 top-0"
+              className="w-[254px] md:hidden px-8 py-30 h-screen absolute backdrop-blur-[81.55px] right-0 bg-white/[0.06] top-0"
               variants={containerVar}
               initial="closed"
               animate="open"
@@ -73,11 +77,11 @@ function NavBar() {
             >
               <div className="w-1 bg-white h-8 absolute top-[113px] right-0" />
               <motion.ul
-                className="text-white grid gap-8 tracking-wider"
+                className="text-white grid gap-8 tracking-270"
                 variants={ulVar}
               >
                 <motion.li
-                  className="flex gap-[9px] h-5"
+                  className="flex gap-[9px] leading-none h-[19px]"
                   variants={liVar}
                   initial="closed"
                   animate="open"
@@ -89,7 +93,7 @@ function NavBar() {
                   </NavLink>
                 </motion.li>
                 <motion.li
-                  className="flex gap-[12px]"
+                  className="flex gap-[12px] leading-none h-[19px]"
                   variants={liVar}
                   initial="closed"
                   animate="open"
@@ -99,7 +103,7 @@ function NavBar() {
                   <NavLink to="/destination">DESTINATION</NavLink>
                 </motion.li>
                 <motion.li
-                  className="flex gap-[10px]"
+                  className="flex gap-[10px] leading-none h-[19px]"
                   variants={liVar}
                   initial="closed"
                   animate="open"
@@ -109,7 +113,7 @@ function NavBar() {
                   <NavLink to="/crew">CREW</NavLink>
                 </motion.li>
                 <motion.li
-                  className="flex gap-[10px] border-0"
+                  className="flex gap-[10px] leading-none h-[19px]"
                   variants={liVar}
                   initial="closed"
                   animate="open"
