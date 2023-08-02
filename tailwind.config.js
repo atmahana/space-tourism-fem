@@ -7,7 +7,7 @@ export default {
     fontFamily: {
       sans: ["Barlow", ...defaultTheme.fontFamily.sans],
       serif: ["Bellefair", ...defaultTheme.fontFamily.serif],
-      'sans-condensed': ["Barlow Condensed", ...defaultTheme.fontFamily.sans],
+      "sans-condensed": ["Barlow Condensed", ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
       sm: "0.875rem",
@@ -31,9 +31,9 @@ export default {
         "6xl": "9.375rem",
       },
       letterSpacing: {
-        '235': "0.146875rem",
-        '270': "0.16875rem",
-        '475': "0.296875rem",
+        235: "0.146875rem",
+        270: "0.16875rem",
+        475: "0.296875rem",
       },
       backgroundImage: {
         "home-mobile": "url('/backgrounds/home/background-home-mobile.jpg')",
@@ -42,9 +42,14 @@ export default {
       },
       width: {
         37: "9.375rem",
+        62: '15.125rem',
       },
       height: {
         37: "9.375rem",
+        62: '15.125rem',
+      },
+      padding: {
+        22: "5.625rem",
       },
     },
   },
