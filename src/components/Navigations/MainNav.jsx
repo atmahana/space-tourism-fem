@@ -27,8 +27,10 @@ function MainNav() {
               />
             )}
 
-            <NavLink id={tab.id}>
-              <span className="hidden xl:inline-block mr-2 font-bold">0{index}</span>
+            <NavLink className='flex gap-[0.125rem]' id={tab.id}>
+              <span className="hidden xl:inline-block mr-2 font-bold">
+                0{index}
+              </span>
               {tab.label}
             </NavLink>
           </motion.li>
