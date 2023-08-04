@@ -5,8 +5,8 @@ function RootLayout() {
   return (
     <>
       <NavBar />
-      <main>
-        <Outlet />
+      <main className="h-screen">
+        <Outlet/>
       </main>
     </>
   );
