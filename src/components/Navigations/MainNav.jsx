@@ -17,7 +17,8 @@ function MainNav() {
       <ul className="container flex h-full gap-9 xl:gap-12 px-12 xl:px-[7.6875rem] tracking-235 xl:tracking-270 text-sm xl:text-base">
         {tabs.map((tab, index) => (
           <motion.li
-            onClick={() => setActiveTab(tab.id)}
+            key={tab.id}
+            // onClick={() => setActiveTab(tab.id)}
             className="flex relative items-center focus-visible:outline hover:border-b-4 hover:border-[#FFFFFF50]"
           >
             {activeTab === tab.id && (
@@ -27,7 +28,13 @@ function MainNav() {
               />
             )}
 
-            <NavLink className='flex gap-[0.125rem]' id={tab.id}>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? setActiveTab(tab.id) : null
+              }
+              to={tab.path}
+              id={tab.id}
+            >
               <span className="hidden xl:inline-block mr-2 font-bold">
                 0{index}
               </span>
