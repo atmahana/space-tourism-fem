@@ -11,7 +11,7 @@ const images = [ImgDouglas, ImgMark, ImgVictor, ImgAnousheh];
 function CrewPage() {
   return (
     <section className="bg-crew-mobile md:max-xl:bg-crew-tablet xl:bg-crew-desktop h-full bg-cover overflow-hidden">
-      <div className="pt-[5.5rem] md:max-xl:pt-[8.3rem] xl:pt-[13rem] 2xl:pt-[15rem] flex flex-col items-center md:items-start md:max-xl:px-[2.375rem] xl:px-[10.375rem] 2xl:px-[25rem]">
+      <div className="pt-[5.5rem] md:max-xl:pt-[8.3rem] xl:pt-[13rem] 2xl:pt-[15rem] flex flex-col items-center md:items-start md:max-xl:px-[2.375rem] xl:px-[10.375rem] 2xl:px-[18rem]">
         <div className="flex gap-[0.875rem] xl:gap-5 tracking-270 md:tracking-[0.21125rem] xl:tracking-475 justify-center">
           <span className="text-base md:text-[1.25rem] xl:text-xl font-sans-condensed font-bold text-white opacity-25">
             02
@@ -26,7 +26,7 @@ function CrewPage() {
           tabsStyle="flex flex-col relative md:max-xl:pt-8"
           tabListStlyle="absolute right-0 left-0 top-72 xl:top-[542px] xl:right-auto xl:pl-1 flex justify-center gap-4 xl:gap-6 cursor-pointer"
           tabStyle="w-[0.625rem] h-[0.625rem] xl:w-[0.9375rem] xl:h-[0.9375rem] 2xl:w-[1.25rem] 2xl:h-[1.25rem] bg-white/[17%] rounded-full"
-          selectedTabStyle="bg-neutral-100"
+          selectedTabStyle="bg-neutral-50"
         >
           {data.crew.map((crew, index) => (
             <TabPanel

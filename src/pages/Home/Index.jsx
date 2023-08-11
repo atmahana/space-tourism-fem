@@ -55,7 +55,7 @@ const buttonVar = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 2,
+      duration: 1,
       y: { stiffness: 1000, velocity: -100 },
     },
   },
@@ -72,7 +72,7 @@ function HomePage() {
     <section className="bg-home-mobile md:max-xl:bg-home-tablet xl:bg-home-desktop bg-cover h-screen w-screen">
       <div className="h-full flex flex-col justify-center items-center xl:items-end xl:pb-[9%] xl:flex-row gap-20 md:gap-[9.75rem] xl:gap-[24.125rem]">
         <motion.div
-          className="mt-16 md:max-xl:mt-28 xl:mt-0 text-secondary grid gap-4 md:gap-6 h-max mx-6 md:max-xl:mx-40 xl:mx-0 text-center xl:w-[28.125rem] xl:h-96 xl:text-start"
+          className="mt-16 md:max-xl:mt-28 xl:mt-0 text-secondary grid gap-4 md:gap-6 h-max mx-6 md:max-xl:mx-40 xl:mx-0 text-center xl:w-[28.125rem] xl:h-96 2xl:h-[30rem] xl:text-start"
           variants={textParentVar}
           initial="hidden"
           animate="visible"

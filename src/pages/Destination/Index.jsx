@@ -13,7 +13,7 @@ function DestinationPage() {
 
   return (
     <section className="bg-dest-mobile md:max-xl:bg-dest-tablet xl:bg-dest-desktop bg-cover h-full text-center overflow-auto">
-      <div className="pt-[5.5rem] md:max-xl:pt-[8.5rem] xl:pt-[13rem] 2xl:pt-[15rem] flex flex-col items-center md:items-start md:max-xl:px-[2.375rem] xl:px-[10.375rem] 2xl:px-[25rem]">
+      <div className="pt-[5.5rem] md:max-xl:pt-[8.5rem] xl:pt-[13rem] 2xl:pt-[15rem] flex flex-col items-center md:items-start md:max-xl:px-[2.375rem] xl:px-[10.375rem] 2xl:px-[18rem]">
         <div className="flex gap-4 xl:gap-6 leading-none xl:leading-normal text-white tracking-270 md:tracking-[0.21125rem] xl:tracking-475 items-center pb-8 md:max-xl:pb-14 xl:pb-[3.7rem]">
           <span className="font-sans-condensed opacity-25 font-bold md:max-xl:text-[1.25rem] xl:text-xl">
             01
