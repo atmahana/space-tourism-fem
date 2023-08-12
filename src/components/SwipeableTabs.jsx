@@ -1,7 +1,6 @@
 import React from "react";
 import { Tab, Tabs, TabList } from "react-tabs";
 import { useSwipeable } from "react-swipeable";
-import { motion } from "framer-motion";
 
 const SwipeableTabs = ({
   children,
@@ -29,34 +28,37 @@ const SwipeableTabs = ({
     },
   });
 
-  const next = () => setSelectedIndex((selectedIndex) => (selectedIndex === children.length - 1 ? 0 : selectedIndex + 1))
+  const next = () =>
+    setSelectedIndex((selectedIndex) =>
+      selectedIndex === children.length - 1 ? 0 : selectedIndex + 1
+    );
 
   React.useEffect(() => {
-    if (!autoSlide) return
-    const slideInterval = setInterval(next, autoSlideInterval)
-    return () => clearInterval(slideInterval)
-  }, [])
+    if (!autoSlide) return;
+    const slideInterval = setInterval(next, autoSlideInterval);
+    return () => clearInterval(slideInterval);
+  }, []);
 
   return (
     <div>
-      <Tabs className={tabsStyle} selectedIndex={selectedIndex} onSelect={(index) => setSelectedIndex(index)}>
+      <Tabs
+        className={tabsStyle}
+        selectedIndex={selectedIndex}
+        onSelect={(index) => setSelectedIndex(index)}
+      >
         <TabList className={tabListStlyle}>
           {tabNames.map((name, index) => (
-            <Tab className={tabStyle} selectedClassName={selectedTabStyle} key={index}>{name}</Tab>
+            <Tab
+              className={tabStyle}
+              selectedClassName={selectedTabStyle}
+              key={index}
+            >
+              {name}
+            </Tab>
           ))}
         </TabList>
         <div {...handlers}>
-          {React.Children.toArray(children).map((child, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              {child}
-            </motion.div>
-          ))}
+          {React.Children.toArray(children)}
         </div>
       </Tabs>
     </div>

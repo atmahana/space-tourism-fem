@@ -5,13 +5,20 @@ import ImgVictor from "../../assets/crew/image-victor-glover.webp";
 import ImgAnousheh from "../../assets/crew/image-anousheh-ansari.webp";
 import SwipeableTabs from "../../components/SwipeableTabs";
 import { TabPanel } from "react-tabs";
+import { motion } from "framer-motion";
+import {
+  fadeInSlow,
+  fromBottomFast,
+  fromLeftFast,
+  parentVar,
+} from "../../utils/animation";
 
 const images = [ImgDouglas, ImgMark, ImgVictor, ImgAnousheh];
 
 function CrewPage() {
   return (
-    <section className="bg-crew-mobile md:max-xl:bg-crew-tablet xl:bg-crew-desktop h-full bg-cover overflow-hidden">
-      <div className="pt-[5.5rem] md:max-xl:pt-[8.3rem] xl:pt-[13rem] 2xl:pt-[11.5rem] flex flex-col items-center md:items-start md:max-xl:px-[2.375rem] xl:px-[10.375rem] 2xl:px-[18rem]">
+    <section className="bg-crew-mobile md:bg-crew-tablet xl:bg-crew-desktop h-full bg-cover overflow-hidden">
+      <div className="pt-[5.5rem] md:pt-[8.3rem] xl:pt-[13rem] 2xl:pt-[11.5rem] flex flex-col items-center md:items-start md:px-[2.375rem] xl:px-[10.375rem] 2xl:px-[18rem]">
         <div className="flex gap-[0.875rem] xl:gap-5 tracking-270 md:tracking-[0.21125rem] xl:tracking-475 justify-center">
           <span className="text-base md:text-[1.25rem] xl:text-xl font-sans-condensed font-bold text-white opacity-25">
             02
@@ -21,7 +28,7 @@ function CrewPage() {
           </h1>
         </div>
         <SwipeableTabs
-          // autoSlide="true"
+          autoSlide="true"
           tabNames={["", "", "", ""]}
           tabsStyle="flex flex-col relative md:max-xl:pt-8"
           tabListStlyle="absolute right-0 left-0 top-72 xl:top-[542px] xl:right-auto xl:pl-1 flex justify-center gap-4 xl:gap-6 cursor-pointer"
@@ -31,23 +38,39 @@ function CrewPage() {
           {data.crew.map((crew, index) => (
             <TabPanel
               key={crew.name}
-              className="flex flex-col md:max-xl:flex-col-reverse xl:flex-row-reverse xl:justify-end divide-y md:divide-y-0 divide-[#383B4B] px-6 xl:px-0"
+              className="flex flex-col md:flex-col-reverse xl:flex-row-reverse xl:justify-end divide-y md:divide-y-0 divide-[#383B4B] px-6 xl:px-0"
             >
-              <img
-                className="xl:fixed xl:bottom-0 xl:right-36 2xl:right-80 h-[13.875rem] w-[11.07] md:max-xl:min-w-[28.5rem] md:max-xl:h-[35.75rem] xl:h-auto xl:max-h-[44.5rem] mt-8 pl-3 md:pl-10 m-auto md:max-xl:mt-20"
+              <motion.img
+                className="xl:fixed xl:bottom-0 xl:right-36 2xl:right-80 h-[13.875rem] w-[11.07] md:min-w-[28.5rem] md:h-[35.75rem] xl:h-auto xl:max-h-[44.5rem] mt-8 pl-3 md:pl-10 m-auto md:mt-20"
                 src={images[index]}
+                initial={fadeInSlow.hidden}
+                animate={fadeInSlow.visible}
               />
-              <div className="xl:mt-[7.8rem] text-white text-center xl:text-start md:max-xl:px-22 xl:pr-0 pt-[4.375rem] md:pt-5 2xl:pt-0 xl:w-full">
-                <h2 className="uppercase text-white/50 md:max-xl:text-[1.5rem] xl:text-2xl">
+              <motion.div
+                className="xl:mt-[7.8rem] text-white text-center xl:text-start md:max-xl:px-22 xl:pr-0 pt-[4.375rem] md:pt-5 2xl:pt-0 xl:w-full"
+                variants={parentVar}
+                initial="hidden"
+                animate="visible"
+              >
+                <motion.h2
+                  className="uppercase text-white/50 md:text-[1.5rem] xl:text-2xl"
+                  variants={fromLeftFast}
+                >
                   {crew.role}
-                </h2>
-                <h3 className="uppercase text-[1.5rem] md:max-xl:text-[2.5rem] xl:text-3xl 2xl:text-4xl xl:pb-2">
+                </motion.h2>
+                <motion.h3
+                  className="uppercase text-[1.5rem] md:text-[2.5rem] xl:text-3xl 2xl:text-4xl xl:pb-2"
+                  variants={fromBottomFast}
+                >
                   {crew.name}
-                </h3>
-                <p className="text-secondary xl:max-w-[56ch] 2xl:max-w-[75ch] text-[0.9375rem] md:max-xl:text-base xl:text-lg mt-4 md:mt-2 leading-6 md:max-xl:leading-7 xl:leading-8 xl:pr-30 2xl:text-[1.3rem]">
+                </motion.h3>
+                <motion.p
+                  className="text-secondary xl:max-w-[56ch] 2xl:max-w-[75ch] text-[0.9375rem] md:text-base xl:text-lg mt-4 md:mt-2 leading-6 md:leading-7 xl:leading-8 xl:pr-30 2xl:text-[1.3rem]"
+                  variants={fromBottomFast}
+                >
                   {crew.bio}
-                </p>
-              </div>
+                </motion.p>
+              </motion.div>
             </TabPanel>
           ))}
         </SwipeableTabs>
