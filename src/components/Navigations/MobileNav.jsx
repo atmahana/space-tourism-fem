@@ -1,120 +1,98 @@
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-
-const containerVar = {
-  open: {
-    opacity: 1,
-    x: "0%",
-    transition: {
-      when: "beforeChildren",
-      type: "tween",
-      duration: 0.35,
-    },
-  },
-  closed: {
-    opacity: 0,
-    x: "100%",
-    transition: {
-      when: "afterChildren",
-      type: "tween",
-      duration: 0.35,
-    },
-  },
-};
-
-const ulVar = {
-  open: {
-    transition: {
-      type: "spring",
-      bounce: 0,
-      duration: 0.5,
-      staggerChildren: 0.05,
-    },
-  },
-  closed: {
-    transition: {
-      type: "spring",
-      bounce: 0,
-      duration: 0.3,
-    },
-  },
-};
-
-const liVar = {
-  open: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      x: { stiffness: 1000, velocity: -100 },
-    },
-  },
-  closed: {
-    x: 100,
-    opacity: 0,
-    transition: {
-      x: { stiffness: 1000 },
-    },
-  },
-};
-
-const liHover = {
-  scale: 1.2,
-  originX: 0,
-};
+import { ulVar, liVar, containerVar } from "./nav-anim";
+import { useEffect } from "react";
 
 function MobileNav({ mobileNav }) {
+  useEffect(() => {
+    console.log("Navbar did mount");
+
+    return () => {
+      console.log("Navbar will unmount");
+    };
+  }, []); // Empty dependency array means this effect only runs on mount and unmount
+
+  useEffect(() => {
+    console.log("Navbar did update");
+  }); // No dependency array means this effect runs on every update
+
+  console.log("Navbar rendering");
+
   return (
     <AnimatePresence>
       {mobileNav && (
         <motion.div
           key="mobileNav"
-          className="w-[254px] md:hidden px-8 py-30 h-screen absolute backdrop-blur-[81.55px] right-0 bg-white/[0.06] top-0"
+          className="w-[15.875rem] md:hidden pl-8 py-28 h-screen absolute backdrop-blur-[81.55px] right-0 bg-white/[0.06] top-0"
           variants={containerVar}
           initial="closed"
           animate="open"
           exit="closed"
         >
-          <div className="w-1 bg-white h-8 absolute top-[113px] right-0" />
           <motion.ul
-            className="text-white grid gap-8 tracking-270"
+            className="text-white grid gap-[1.15rem] tracking-270"
             variants={ulVar}
           >
             <AnimatePresence>
               <motion.li
-                className="flex gap-[9px] leading-none h-[19px]"
+                className="flex gap-[0.5625rem] items-center leading-loose h-8"
                 key="home"
                 variants={liVar}
-                whileHover={liHover}
               >
                 <span className="font-bold">00</span>
-                <NavLink to="/">HOME</NavLink>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? "border-r-4 w-full" : ""
+                  }
+                >
+                  HOME
+                </NavLink>
               </motion.li>
               <motion.li
-                className="flex gap-[12px] leading-none h-[19px]"
+                className="flex gap-[0.75rem] items-center leading-loose h-8"
                 key="destination"
                 variants={liVar}
-                whileHover={liHover}
               >
                 <span className="font-bold">01</span>
-                <NavLink to="/destination">DESTINATION</NavLink>
+                <NavLink
+                  to="/destination"
+                  className={({ isActive }) =>
+                    isActive ? "border-r-4 w-full" : ""
+                  }
+                >
+                  DESTINATION
+                </NavLink>
               </motion.li>
               <motion.li
-                className="flex gap-[10px] leading-none h-[19px]"
+                className="flex gap-[0.625rem] items-center leading-loose h-8"
                 key="crew"
                 variants={liVar}
-                whileHover={liHover}
               >
                 <span className="font-bold">02</span>
-                <NavLink to="/crew">CREW</NavLink>
+                <NavLink
+                  to="/crew"
+                  className={({ isActive }) =>
+                    isActive ? "border-r-4 w-full" : ""
+                  }
+                >
+                  CREW
+                </NavLink>
               </motion.li>
               <motion.li
-                className="flex gap-[10px] leading-none h-[19px]"
+                className="flex gap-[0.625rem] items-center leading-loose h-8"
                 key="technology"
                 variants={liVar}
-                whileHover={liHover}
               >
                 <span className="font-bold">03</span>
-                <NavLink to="/technology">TECHNOLOGY</NavLink>
+                <NavLink
+                  to="/technology"
+                  className={({ isActive }) =>
+                    isActive ? "border-r-4 w-full" : ""
+                  }
+                >
+                  TECHNOLOGY
+                </NavLink>
               </motion.li>
             </AnimatePresence>
           </motion.ul>

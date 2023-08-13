@@ -10,7 +10,7 @@ const SwipeableTabs = ({
   tabStyle,
   selectedTabStyle,
   autoSlide = false,
-  autoSlideInterval = 3000,
+  autoSlideInterval = 8000,
 }) => {
   const totalTabs = tabNames.length;
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -53,13 +53,11 @@ const SwipeableTabs = ({
               selectedClassName={selectedTabStyle}
               key={index}
             >
-              {name}
+              <span>{name}</span>
             </Tab>
           ))}
         </TabList>
-        <div {...handlers}>
-          {React.Children.toArray(children)}
-        </div>
+        <div {...handlers}>{React.Children.toArray(children)}</div>
       </Tabs>
     </div>
   );

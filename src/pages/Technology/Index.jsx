@@ -12,10 +12,11 @@ import { motion } from "framer-motion";
 import {
   parentVar,
   fromBottomFast,
-  fadeInFast,
   fromLeftFast,
   fromRightFast,
 } from "../../utils/animation";
+
+import Transition from "../../components/Transition";
 
 function TechnologyPage() {
   const landscapeImages = [
@@ -31,7 +32,7 @@ function TechnologyPage() {
   ];
 
   return (
-    <section className="h-full bg-tech-mobile md:bg-tech-tablet xl:bg-tech-desktop bg-cover">
+    <section className="h-screen bg-tech-mobile md:bg-tech-tablet xl:bg-tech-desktop bg-cover">
       <div className="pt-[5.5rem] md:pt-[8.6rem] xl:pt-[13rem] 2xl:pt-[11.5rem] flex flex-col items-center md:items-start xl:px-[10.375rem] 2xl:px-[18rem]">
         <div className="flex gap-[0.8rem] xl:gap-5 leading-none xl:leading-normal text-white tracking-270 md:tracking-[0.21125rem] xl:tracking-475 items-center pb-9 md:pb-14 xl:pb-[3.7rem] md:max-xl:px-[2.375rem]">
           <span className="font-sans-condensed opacity-25 font-bold md:text-[1.25rem] xl:text-xl">
@@ -46,7 +47,7 @@ function TechnologyPage() {
           tabsStyle="relative md:pt-2 xl:-mt-11"
           tabListStlyle="absolute flex xl:flex-col gap-4 xl:gap-8 inset-x-0 justify-center top-[12.69rem] md:top-[23.3rem] xl:top-28 font-serif"
           tabStyle="grid place-content-center text-white w-10 md:w-[3.75rem] md:h-[3.75rem] h-10 xl:w-20 xl:h-20 rounded-full xl:text-xl border border-white/25 cursor-pointer"
-          selectedTabStyle="border-white bg-white text-neutral-900"
+          selectedTabStyle="border-white bg-white text-black"
         >
           {data.technology.map((tech, index) => (
             <TabPanel
@@ -77,14 +78,14 @@ function TechnologyPage() {
                     THE TERMINOLOGY...
                   </span>
                   <motion.h2
-                    className="uppercase text-[1.5rem] md:text-[2.5rem] xl:text-3xl 2xl:text-5xl text-white"
+                    className="uppercase text-[1.5rem] md:text-[2.5rem] xl:text-3xl 2xl:text-4xl text-white"
                     variants={fromLeftFast}
                   >
                     {tech.name}
                   </motion.h2>
                 </div>
                 <motion.p
-                  className="text-secondary text-[0.9375rem] md:text-base xl:text-lg 2xl:text-[1.35rem] leading-[1.5625rem] md:leading-7 xl:leading-8 xl:pr-[9.5rem]"
+                  className="text-secondary text-[0.9375rem] md:text-base xl:text-lg 2xl:text-[1.3rem] leading-[1.5625rem] md:leading-7 xl:leading-8 xl:pr-[9.5rem]"
                   variants={fromBottomFast}
                 >
                   {tech.description}
@@ -98,4 +99,4 @@ function TechnologyPage() {
   );
 }
 
-export default TechnologyPage;
+export default Transition(TechnologyPage);

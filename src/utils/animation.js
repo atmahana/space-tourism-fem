@@ -4,6 +4,7 @@ export const parentVar = {
       type: "tween",
       duration: 1,
       staggerChildren: 0.25,
+      delay: 1
     },
   },
   hidden: {
@@ -21,6 +22,24 @@ export const fromBottomFast = {
     opacity: 1,
     transition: {
       duration: 0.5,
+      y: { stiffness: 1000, velocity: -100 },
+    },
+  },
+  hidden: {
+    y: 100,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 },
+    },
+  },
+};
+
+export const fromBottomSlow = {
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
       y: { stiffness: 1000, velocity: -100 },
     },
   },
@@ -104,6 +123,7 @@ export const fadeInFast = {
 export const rotateInFast = {
   visible: {
     rotate: 0,
+    opacity: 1,
     scale: 1,
     transition: {
       type: "spring",
@@ -111,5 +131,5 @@ export const rotateInFast = {
       damping: 20,
     },
   },
-  hidden: { rotate: 180, scale: 0.8 },
+  hidden: { rotate: 90, opacity: 0, scale: 0.8 },
 };

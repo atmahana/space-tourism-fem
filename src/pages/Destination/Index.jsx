@@ -5,7 +5,8 @@ import ImageEuropa from "../../assets/destination/image-europa.webp";
 import ImageTitan from "../../assets/destination/image-titan.webp";
 import SwipeableTabs from "../../components/SwipeableTabs";
 import { TabPanel } from "react-tabs";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import Transition from "../../components/Transition";
 
 import { parentVar, fromBottomFast, rotateInFast } from "../../utils/animation";
 
@@ -14,7 +15,7 @@ function DestinationPage() {
   const images = [ImageMoon, ImageMars, ImageEuropa, ImageTitan];
 
   return (
-    <section className="bg-dest-mobile md:bg-dest-tablet xl:bg-dest-desktop bg-cover h-full text-center overflow-auto">
+    <section className="bg-dest-mobile md:bg-dest-tablet xl:bg-dest-desktop bg-cover h-screen text-center overflow-auto">
       <div className="pt-[5.5rem] md:pt-[8.5rem] xl:pt-[13rem] 2xl:pt-[11.5rem] flex flex-col items-center md:items-start md:px-[2.375rem] xl:px-[10.375rem] 2xl:px-[18rem]">
         <div className="flex gap-4 xl:gap-6 leading-none xl:leading-normal text-white tracking-270 md:tracking-[0.21125rem] xl:tracking-475 items-center pb-8 md:pb-14 xl:pb-[3.7rem]">
           <span className="font-sans-condensed opacity-25 font-bold md:text-[1.25rem] xl:text-xl">
@@ -24,7 +25,7 @@ function DestinationPage() {
             PICK YOUR DESTINATION
           </h1>
         </div>
-        <div className="flex flex-col xl:flex-row xl:gap-[9.8rem] xl:ml-16 2xl:mt-14">
+        <div className="flex flex-col xl:flex-row xl:gap-[9.8rem] xl:ml-16 2xl:mt-0">
           <SwipeableTabs
             tabNames={tabNames}
             tabsStyle="relative"
@@ -53,7 +54,7 @@ function DestinationPage() {
                     className="text-center xl:text-start pt-[4.4rem] md:pt-14 xl:pt-6 pb-8 md:pb-12 xl:pb-14 border-b border-[#383B4B]"
                     variants={fromBottomFast}
                   >
-                    <h2 className="leading-tight md:leading-none md:pt-4 uppercase text-white text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl">
+                    <h2 className="leading-tight md:leading-none md:pt-4 uppercase text-white text-3xl md:text-4xl xl:text-5xl 2xl:text-4xl">
                       {destination.name}
                     </h2>
                     <p className="leading-[1.5625rem] md:leading-7 xl:leading-8 md:pt-4 xl:pt-5 text-[0.9375rem] md:text-base xl:text-lg 2xl:text-[1.3rem] text-secondary">
@@ -91,4 +92,4 @@ function DestinationPage() {
   );
 }
 
-export default DestinationPage;
+export default Transition(DestinationPage);
