@@ -1,42 +1,26 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import NavBar from "./components/Navigations/Index";
-import RootLayout from "./layout/Root";
-import DestinationPage from "./pages/Destination/Index";
-import HomePage from "./pages/Home/Index";
-import CrewPage from "./pages/Crew/Index";
-import TechnologyPage from "./pages/Technology/Index";
-import { AnimatePresence } from "framer-motion";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { lazy } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <RootLayout />,
-//     id: "root",
-//     children: {
-//       element: <AnimatePresence mode="wait" />,
-//       children: [
-//         { index: true, element: <HomePage /> },
-//         { path: "destination", element: <DestinationPage /> },
-//         { path: "crew", element: <CrewPage /> },
-//         { path: "technology", element: <TechnologyPage /> },
-//       ],
-//     },
-//   },
-// ]);
+import RootLayout from "./layout/Root";
+import ErrorPage from "./pages/ErrorPage";
+
+const HomePage = lazy(() => import("./pages/Home/Index"));
+const DestinationPage = lazy(() => import("./pages/Destination/Index"));
+const CrewPage = lazy(() => import("./pages/Crew/Index"));
+const TechnologyPage = lazy(() => import("./pages/Technology/Index"));
 
 export default function App() {
-  // return <RouterProvider router={router} />;
   const location = useLocation();
 
   return (
     <>
-      <NavBar />
       <Routes location={location} key={location.pathname}>
-        <Route index element={<HomePage />} />
-        <Route path="/destination" element={<DestinationPage />} />
-        <Route path="/crew" element={<CrewPage />} />
-        <Route path="/technology" element={<TechnologyPage />} />
+        <Route path="/" element={<RootLayout />} errorElement={<ErrorPage />}>
+          <Route index element={<HomePage />} />
+          <Route path="/destination" element={<DestinationPage />} />
+          <Route path="/crew" element={<CrewPage />} />
+          <Route path="/technology" element={<TechnologyPage />} />
+        </Route>
       </Routes>
     </>
   );

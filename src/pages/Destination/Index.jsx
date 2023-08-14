@@ -15,7 +15,7 @@ function DestinationPage() {
   const images = [ImageMoon, ImageMars, ImageEuropa, ImageTitan];
 
   return (
-    <section className="bg-dest-mobile md:bg-dest-tablet xl:bg-dest-desktop bg-cover h-screen text-center overflow-auto">
+    <section className="bg-dest-mobile md:bg-dest-tablet xl:bg-dest-desktop bg-primary bg-cover h-screen text-center overflow-auto">
       <div className="pt-[5.5rem] md:pt-[8.5rem] xl:pt-[13rem] 2xl:pt-[11.5rem] flex flex-col items-center md:items-start md:px-[2.375rem] xl:px-[10.375rem] 2xl:px-[18rem]">
         <div className="flex gap-4 xl:gap-6 leading-none xl:leading-normal text-white tracking-270 md:tracking-[0.21125rem] xl:tracking-475 items-center pb-8 md:pb-14 xl:pb-[3.7rem]">
           <span className="font-sans-condensed opacity-25 font-bold md:text-[1.25rem] xl:text-xl">
@@ -43,6 +43,8 @@ function DestinationPage() {
                   src={images[index]}
                   initial={rotateInFast.hidden}
                   animate={rotateInFast.visible}
+                  loading="lazy"
+                  alt={`Image of ${destination.name}`}
                 />
                 <motion.div
                   className="xl:mt-10"

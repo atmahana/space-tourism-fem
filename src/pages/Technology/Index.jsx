@@ -32,7 +32,7 @@ function TechnologyPage() {
   ];
 
   return (
-    <section className="h-screen bg-tech-mobile md:bg-tech-tablet xl:bg-tech-desktop bg-cover">
+    <section className="h-screen bg-tech-mobile md:bg-tech-tablet xl:bg-tech-desktop bg-cover bg-primary">
       <div className="pt-[5.5rem] md:pt-[8.6rem] xl:pt-[13rem] 2xl:pt-[11.5rem] flex flex-col items-center md:items-start xl:px-[10.375rem] 2xl:px-[18rem]">
         <div className="flex gap-[0.8rem] xl:gap-5 leading-none xl:leading-normal text-white tracking-270 md:tracking-[0.21125rem] xl:tracking-475 items-center pb-9 md:pb-14 xl:pb-[3.7rem] md:max-xl:px-[2.375rem]">
           <span className="font-sans-condensed opacity-25 font-bold md:text-[1.25rem] xl:text-xl">
@@ -65,6 +65,8 @@ function TechnologyPage() {
                 <img
                   src={portraitImages[index]}
                   className="min-h-[10.625rem] xl:min-w-[32rem] 2xl:min-w-[37rem]"
+                  loading="lazy"
+                  alt={`Image of ${tech.name}`}
                 />
               </motion.picture>
               <motion.div

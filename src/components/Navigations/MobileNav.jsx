@@ -1,23 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ulVar, liVar, containerVar } from "./nav-anim";
-import { useEffect } from "react";
 
 function MobileNav({ mobileNav }) {
-  useEffect(() => {
-    console.log("Navbar did mount");
-
-    return () => {
-      console.log("Navbar will unmount");
-    };
-  }, []); // Empty dependency array means this effect only runs on mount and unmount
-
-  useEffect(() => {
-    console.log("Navbar did update");
-  }); // No dependency array means this effect runs on every update
-
-  console.log("Navbar rendering");
-
   return (
     <AnimatePresence>
       {mobileNav && (
