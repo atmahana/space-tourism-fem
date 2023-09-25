@@ -1,12 +1,5 @@
 import { lazy } from "react";
-import {
-  Route,
-  RouterProvider,
-  Routes,
-  createBrowserRouter,
-  createRoutesFromElements,
-  useLocation,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import RootLayout from "./layout/Root";
 import Error from "./pages/Error";
