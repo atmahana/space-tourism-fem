@@ -33,7 +33,7 @@ function CrewPage() {
           tabsStyle="flex flex-col relative md:max-xl:pt-8"
           tabListStlyle="absolute right-0 left-0 top-72 xl:top-[33.875rem] xl:right-auto xl:pl-1 flex justify-center gap-4 xl:gap-6 cursor-pointer"
           tabStyle="w-[0.625rem] h-[0.625rem] xl:w-[0.9375rem] xl:h-[0.9375rem] 2xl:w-[1.25rem] 2xl:h-[1.25rem] bg-white/[17%] rounded-full"
-          selectedTabStyle="bg-white"
+          selectedTabStyle="w-[0.625rem] h-[0.625rem] xl:w-[0.9375rem] xl:h-[0.9375rem] 2xl:w-[1.25rem] 2xl:h-[1.25rem] bg-white rounded-full"
         >
           {data.crew.map((crew, index) => (
             <TabPanel

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { parentVar, fromBottomFast, fadeInSlow } from "../../utils/animation";
 import Transition from "../../components/Transition";
+import { NavLink } from "react-router-dom";
 function HomePage() {
   return (
     <section className="bg-home-mobile md:bg-home-tablet xl:bg-home-desktop bg-primary bg-cover h-screen w-screen">
@@ -34,14 +35,14 @@ function HomePage() {
           </motion.p>
         </motion.div>
         <motion.div variants={parentVar} initial="hidden" animate="visible">
-          <motion.button
+          <NavLink
+            to="destination"
             className="bg-white z-20 w-37 h-37 md:w-62 md:h-62 xl:w-[17.125rem] xl:h-[17.125rem] rounded-full grid place-content-center shadow-[0px_0px_0px_0px_rgba(255,255,255,0)] hover:shadow-[0px_0px_0px_2.75rem_rgba(255,255,255,0.2)] transition-all"
-            variants={fadeInSlow}
           >
             <span className="font-serif text-primary text-[1.25rem] md:text-2xl tracking-wider mt-2 md:mt-0 xl:tracking-235">
               EXPLORE
             </span>
-          </motion.button>
+          </NavLink>
         </motion.div>
       </div>
     </section>

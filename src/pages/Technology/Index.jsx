@@ -47,7 +47,7 @@ function TechnologyPage() {
           tabsStyle="relative md:pt-2 xl:-mt-11"
           tabListStlyle="absolute flex xl:flex-col gap-4 xl:gap-8 inset-x-0 justify-center top-[12.69rem] md:top-[23.3rem] xl:top-28 font-serif"
           tabStyle="grid place-content-center text-white w-10 md:w-[3.75rem] md:h-[3.75rem] h-10 xl:w-20 xl:h-20 rounded-full xl:text-xl border border-white/25 cursor-pointer"
-          selectedTabStyle="border-white bg-white text-black"
+          selectedTabStyle="grid place-content-center w-10 md:w-[3.75rem] md:h-[3.75rem] h-10 xl:w-20 xl:h-20 rounded-full xl:text-xl border border-white bg-white text-neutral-950 cursor-pointer"
         >
           {data.technology.map((tech, index) => (
             <TabPanel

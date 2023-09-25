@@ -31,7 +31,7 @@ function DestinationPage() {
             tabsStyle="relative"
             tabListStlyle="absolute inset-x-0 top-48 md:top-[22rem] xl:top-0 xl:left-[37.625rem] 2xl:left-[40.5rem] flex justify-center xl:justify-start gap-[1.625rem] md:gap-[2.125rem] xl:gap-[2.125rem]"
             tabStyle="text-secondary uppercase font-sans-condensed tracking-235 md:tracking-270 text-sm md:text-base 2xl:text-lg h-[1.875rem] md:h-[2.375rem] xl:h-9 xl:leading-tight cursor-pointer"
-            selectedTabStyle="text-white border-b-[3px]"
+            selectedTabStyle="uppercase font-sans-condensed tracking-235 md:tracking-270 text-sm md:text-base 2xl:text-lg h-[1.875rem] md:h-[2.375rem] xl:h-9 xl:leading-tight cursor-pointer text-white border-b-[3px]"
           >
             {data.destinations.map((destination, index) => (
               <TabPanel

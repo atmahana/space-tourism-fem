@@ -49,8 +49,7 @@ const SwipeableTabs = ({
         <TabList className={tabListStlyle}>
           {tabNames.map((name, index) => (
             <Tab
-              className={tabStyle}
-              selectedClassName={selectedTabStyle}
+              className={selectedIndex === index ? selectedTabStyle : tabStyle}
               key={index}
             >
               <span>{name}</span>
