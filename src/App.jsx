@@ -1,27 +1,36 @@
 import { lazy } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import {
+  Route,
+  RouterProvider,
+  Routes,
+  createBrowserRouter,
+  createRoutesFromElements,
+  useLocation,
+} from "react-router-dom";
 
 import RootLayout from "./layout/Root";
-import ErrorPage from "./pages/ErrorPage";
+import Error from "./pages/Error";
 
-const HomePage = lazy(() => import("./pages/Home/Index"));
-const DestinationPage = lazy(() => import("./pages/Destination/Index"));
-const CrewPage = lazy(() => import("./pages/Crew/Index"));
-const TechnologyPage = lazy(() => import("./pages/Technology/Index"));
+const Home = lazy(() => import("./pages/Home/Index"));
+const Destination = lazy(() => import("./pages/Destination/Index"));
+const Crew = lazy(() => import("./pages/Crew/Index"));
+const Technology = lazy(() => import("./pages/Technology/Index"));
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    id: "root",
+    errorElement: <Error />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "destination", element: <Destination /> },
+      { path: "crew", element: <Crew /> },
+      { path: "technology", element: <Technology /> },
+    ],
+  },
+]);
 
 export default function App() {
-  const location = useLocation();
-
-  return (
-    <>
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<RootLayout />} errorElement={<ErrorPage />}>
-          <Route index element={<HomePage />} />
-          <Route path="/destination" element={<DestinationPage />} />
-          <Route path="/crew" element={<CrewPage />} />
-          <Route path="/technology" element={<TechnologyPage />} />
-        </Route>
-      </Routes>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
