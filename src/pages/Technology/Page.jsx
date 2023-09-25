@@ -50,14 +50,15 @@ function TechnologyPage() {
           {data.technology.map((tech, index) => (
             <TabPanel
               key={tech.name}
-              className="flex flex-col xl:flex-row-reverse xl:ml-[10.25rem] 2xl:ml-46 xl:w-full"
+              className="flex flex-col xl:flex-row-reverse xl:ml-[10.25rem] 2xl:ml-46 xl:w-full overflow-hidden"
             >
               <motion.picture
                 initial={fromRightFast.hidden}
                 animate={fromRightFast.visible}
+                className="place-self-center"
               >
                 <source
-                  media="(max-width: 1024px)"
+                  media="(max-width: 1280px)"
                   srcSet={landscapeImages[index]}
                 />
                 <img
