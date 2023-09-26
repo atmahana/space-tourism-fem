@@ -18,14 +18,15 @@ function NavBar() {
       <div className="w-1/3 2xl:w-[52%] h-[1px] hidden xl:block bg-white/[0.25] absolute top-[5.375rem] left-46 z-10" />
       <nav className="mx-auto h-full font-sans-condensed">
         <div className="relative flex h-full md:h-24 xl:h-24 items-center xl:mt-10">
-          <NavLink to="/">
-            <img src={IconLogo} className="w-10 h-10 md:w-12 md:h-12" />
+          <NavLink to="/" aria-label="Home page">
+            <img src={IconLogo} className="w-10 h-10 md:w-12 md:h-12" alt="Page logo"/>
           </NavLink>
           <button
+            aria-label="menu button"
             onClick={menuClickHandler}
             className="absolute md:hidden right-0 top-[2.0625rem] z-10"
           >
-            <img src={mobileNav ? IconClose : IconHamburger} />
+            <img src={mobileNav ? IconClose : IconHamburger} alt="hamburger menu icon"/>
           </button>
         </div>
         <MainNav />
